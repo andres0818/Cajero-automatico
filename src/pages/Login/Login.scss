@@ -1,0 +1,63 @@
+.login {
+    background-color: gray;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+
+
+    &__cajero {
+        width: 30%;
+        position: absolute;
+        z-index: 0;
+
+        @media(max-width: 414px) {
+            width: 50%;
+        }
+
+    }
+
+    &__google {
+        position: absolute;
+        width: 3%;
+        transform: translatex(64%) translateY(4%);
+        background-color: white;
+        border-radius: 50%;
+        padding: 0.3%;
+
+        @media(max-width:414px) {
+        width: 4.8%;
+        }
+    }
+
+    &__titulo,
+    &__subtitulo {
+        position: absolute;
+    }
+
+    &__titulo {
+        transform: translateY(-250%);
+
+        font-size: 50px;
+    }
+
+    &__subtitulo {
+        transform: translateY(-200%);
+        font-size: 40px;
+    }
+
+    @media(max-width:414px) {
+
+        &__titulo {
+            transform: translateY(-200%);
+            font-size: 26px;
+        }
+
+        &__subtitulo {
+            transform: translateY(-150%);
+        }
+    }
+
+}
