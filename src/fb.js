@@ -1,6 +1,5 @@
-import firebase from './firebase/compat/auth'
-import 'firebase/compat/auth'
-
+import firebase from "firebase/compat/app"
+import "firebase/compat/auth"
 
 export const app = firebase.initializeApp({
     "projectId": "proyecto-dos-autenticacion",
