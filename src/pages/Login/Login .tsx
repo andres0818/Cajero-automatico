@@ -51,7 +51,7 @@ const Login: Function = () => {
                 <input className='login__email' type="email" name="email" id="email" placeholder='email' />
                 <input className='login__password' type="password" name="password" id="password" placeholder='password' />
                 <div className='login__containerBtn'>
-                  <button className='login__submit' type="submit">Log in</button>
+                  <button className='login__submit fifth' type="submit"><span className='titulo'>Log in</span></button>
                   <button className='login__back' onClick={() => setModal(false)} type="button">Back</button>
                 </div>
 
