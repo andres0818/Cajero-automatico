@@ -176,7 +176,7 @@
     &__back {
         border-radius: 12px;
         font-size: 16px;
-        padding: 5px;
+        padding: 15px 5px;
         border: none;
         width: 40%;
         font-weight: bold;
@@ -187,6 +187,8 @@
         color: white;
         position: relative;
         overflow: hidden;
+
+
 
         &::before {
             content: '';
@@ -201,7 +203,7 @@
         }
 
         &:hover::before {
-            
+
             transform: scale(600%) rotate(45deg);
             background-color: rgb(212, 212, 212);
         }
@@ -211,21 +213,52 @@
         }
     }
 
+    &__textSubmitBtn {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     &__back {
         background-color: rgb(209, 5, 5);
         color: white;
+        position: relative;
+        overflow: hidden;
+
+
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            transform: translatex(-50%) rotate(45deg);
+            transition: all 1s ease;
+            z-index: 0;
+        }
+
+        &:hover::before {
+
+            transform: scale(600%) rotate(45deg);
+            background-color: rgb(212, 212, 212);
+        }
+
 
         &:hover {
-            background-color: rgba(136, 136, 136, 0.308);
-            color: rgb(209, 5, 5);
+            color: white;
         }
     }
-}
+    &__textBackBtn {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-.titulo{
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    
 }
