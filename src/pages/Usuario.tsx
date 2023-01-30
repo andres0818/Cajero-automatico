@@ -30,7 +30,7 @@ const Usuario = ({ acomulado, cantidadBilletes, setAcomulado, setCantidadBillete
   const number: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const [retirar, setRetirar] = useState<number | string>(0)
   const [retirarJoin, setRetirarJoin] = useState<number[]>([])
-  const [sinFondos, setSinFondos] = useState(true)
+  const [sinFondos, setSinFondos] = useState(false)
   const navigate = useNavigate()
 
 
