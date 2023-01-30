@@ -8,9 +8,9 @@ import { useState } from 'react'
 
 
 interface Billetes {
-  diez?: 0,
-  veinte?: 0,
-  cincuenta?: 0,
+  diez?: number,
+  veinte?: number,
+  cincuenta?: number,
 }
 
 const INITIAL_STATE: Billetes = {
