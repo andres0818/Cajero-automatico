@@ -105,7 +105,7 @@
         @media(max-width:414px) {
             width: 24%;
             cursor: none;
-            transform: translateY(380%);
+            transform: translateY(340%);
         }
     }
 
@@ -158,5 +158,26 @@
             margin-bottom: 3%;
         }
 
+    }
+
+    &__cerrarSesion {
+        border: none;
+        background: rgb(194, 52, 52);
+        padding: 10px;
+        border-radius: 12px;
+        color: white;
+        font-weight: bold;
+        position: absolute;
+        transform: translate(-480%, -1020%);
+
+        @media(max-width: 414px) {
+            position: sticky;
+            transform: translate(0);
+        }
+
+        &:hover{
+            color: rgb(194, 52, 52) ;
+            background: white;
+        }
     }
 }
