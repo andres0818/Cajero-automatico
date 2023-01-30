@@ -30,54 +30,29 @@ const Usuario = ({ acomulado, cantidadBilletes, setAcomulado, setCantidadBillete
   const number: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const [retirar, setRetirar] = useState<number | string>(0)
   const [retirarJoin, setRetirarJoin] = useState<number[]>([])
+  const [sinFondos, setSinFondos] = useState(true)
   const navigate = useNavigate()
 
-  const retirarDinero = () => {
 
 
-    while (retirar > 0 && retirar <= acomulado) {
-      if (retirar >= 50 && cantidadBilletes.cincuenta) {
-        setCantidadBilletes({
-          ...cantidadBilletes,
-          cincuenta: cantidadBilletes.cincuenta - 1,
-        })
-        setAcomulado(acomulado - 50)
-      } else if (retirar >= 50 && cantidadBilletes.cincuenta) {
-        setCantidadBilletes({
-          ...cantidadBilletes,
-          cincuenta: cantidadBilletes.cincuenta - 1,
-        })
-        setAcomulado(acomulado - 50)
-      }
-    }
-    /* 
-      while (retiro > 0) {
-        if (retiro >= 100 && CIEN.numBilletesDeCien > 0) {
-          retiroBilleteCien += 1;
-          CIEN.numBilletesDeCien -= 1;
-          retiro -= 100;
-        } else if (retiro >= 50 && CINCUENTA.numBilletesDeCincuenta > 0) {
-          retiroBilleteCincuenta += 1;
-          CINCUENTA.numBilletesDeCincuenta -= 1;
-          retiro -= 50;
-        } else if (retiro >= 20 && VEINTE.numBilletesDeVeinte > 0) {
-          retiroBilleteVeinte += 1;
-          VEINTE.numBilletesDeVeinte -= 1;
-          retiro -= 20;
-        } else if (retiro >= 10 && DIEZ.numBilletesDeDiez > 0) {
-          retiroBilleteDiez += 1;
-          DIEZ.numBilletesDeDiez -= 1;
-          retiro -= 10;
-        } else if (retiro >= 5 && CINCO.numBilletesDeCinco > 0) {
-          retiroBilleteCinco += 1;
-          CINCO.numBilletesDeCinco -= 1;
-          retiro -= 5;
-        
-    
-    */
+
+  const retirarDinero = (dineroRetirado: number) => {
 
 
-    console.log(cantidadBilletes);
+    const valor: number = typeof retirar === 'number' ? retirar : parseInt(retirar)
+    const cincuenta: number = cantidadBilletes.cincuenta !== undefined ? cantidadBilletes.cincuenta : 0
+    const veinte: number = cantidadBilletes.veinte !== undefined ? cantidadBilletes.veinte : 0
+    const diez: number = cantidadBilletes.diez !== undefined ? cantidadBilletes.diez : 0
+
+    const validarCantidad = () => acomulado > 0 ? setAcomulado(acomulado - valor) : setSinFondos(true);
+
+    validarCantidad()
+
+    setCantidadBilletes({
+      diez: 0
+    })
+
+
   }
 
 
@@ -107,33 +82,44 @@ const Usuario = ({ acomulado, cantidadBilletes, setAcomulado, setCantidadBillete
 
 
   return (
-    <div className='admin'>
-      <div className='admin__container'>
-        <h1 className="usuario__titulo">Saldo disponible: <span>{acomulado}</span></h1>
-
-      </div>
-      <div className='admin__btnFunciones'>
-      </div>
-
-      <form onSubmit={(e) => handlerSubmit(e)} className="usuario__form">
-        <p className="usuario__valorRetirar">valor a retirar: <input onChange={e => setRetirar(e.target.value)} type="number" value={retirar} /></p>
-        <div className='admin__containerBotones'>
-
-          {
-            number.map((number: number, i: number) =>
-              <button onClick={() => btnClick(number)} className='admin__botones usuario__botones' value={number} key={i}>
-                {number}
-              </button>
-            )
-          }
+    <>
+      <div className='admin'>
+        <div className='admin__container'>
+          <h1 className="usuario__titulo">Saldo disponible: <span>{acomulado}</span></h1>
 
         </div>
-      </form>
-      <button className='admin__cerrarSesion' onClick={() => sinOut()}>Cerrar sesion</button>
-      <button onClick={() => retirarDinero()} className='admin__saldo admin__recargar'>Retirar dinero</button>
-      <button onClick={() => nuevoValor()} className='admin__saldo admin__reiniciar'>Ingresar otro valor</button>
+        <div className='admin__btnFunciones'>
+        </div>
 
-    </div >
+        <form onSubmit={(e) => handlerSubmit(e)} className="usuario__form">
+          <p className="usuario__valorRetirar">valor a retirar: <input onChange={e => setRetirar(e.target.value)} type="number" value={retirar} /></p>
+          <div className='admin__containerBotones'>
+
+            {
+              number.map((number: number, i: number) =>
+                <button onClick={() => btnClick(number)} className='admin__botones usuario__botones' value={number} key={i}>
+                  {number}
+                </button>
+              )
+            }
+
+          </div>
+        </form>
+        <button className='admin__cerrarSesion' onClick={() => sinOut()}>Cerrar sesion</button>
+        <button onClick={() => retirarDinero(acomulado)} className='admin__saldo admin__recargar'>Retirar dinero</button>
+        <button onClick={() => nuevoValor()} className='admin__saldo admin__reiniciar'>Ingresar otro valor</button>
+      </div >
+      {
+        sinFondos &&
+        <div className='usuario__sinFondos'>
+          <div className="usuario__sinFondosContainer">
+
+            <h1 className="usuario__tituloSinfondos">Sin fondos</h1>
+            <button onClick={() => setSinFondos(false)} className="usuario__sinFondosBtn">Retirar nuevamente</button>
+          </div>
+        </div>
+      }
+    </>
   )
 }
 
