@@ -187,6 +187,7 @@
         color: white;
         position: relative;
         overflow: hidden;
+        border: solid  rgb(84, 170, 26) 2px;
 
 
 
@@ -226,6 +227,7 @@
         color: white;
         position: relative;
         overflow: hidden;
+        border: solid  rgb(209, 5, 5) 2px;
 
 
 
@@ -249,7 +251,7 @@
 
 
         &:hover {
-            color: white;
+            color: rgb(209,5,5);
         }
     }
     &__textBackBtn {
