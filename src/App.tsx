@@ -3,14 +3,41 @@ import Admin from './pages/admin/Admin'
 import Login from './pages/Login/Login '
 import Usuario from './pages/Usuario'
 import './App.scss'
+import { useState } from 'react'
+
+
+
+interface Billetes {
+  diez?: 0,
+  veinte?: 0,
+  cincuenta?: 0,
+}
+
+const INITIAL_STATE: Billetes = {
+  diez: 0,
+  veinte: 0,
+  cincuenta: 0,
+}
 
 const App = () => {
+
+  const [acomulado, setAcomulado] = useState<number>(0)
+  const [cantidadBilletes, setCantidadBilletes] = useState(INITIAL_STATE)
   return (
     <Routes>
-      <Route path='/' element={<Login/>}/>
-      <Route path='/admin' element={<Admin/>}/>
-      <Route path='/usuario' element={<Usuario/>}/>
-      <Route path='*' element={<Login/>}/>
+      <Route path='/' element={
+        <Login />} />
+      <Route path='/admin' element={<Admin acomulado={acomulado} setAcomulado={setAcomulado}
+        cantidadBilletes={cantidadBilletes} setCantidadBilletes={setCantidadBilletes}
+      />}
+      />
+      <Route path='/usuario' element={
+        <Usuario
+          acomulado={acomulado} setAcomulado={setAcomulado}
+          cantidadBilletes={cantidadBilletes} setCantidadBilletes={setCantidadBilletes}
+        />}
+      />
+      <Route path='*' element={<Login />} />
     </Routes>
   )
 }

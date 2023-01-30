@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import { useNavigate } from 'react-router-dom'
 import { app } from '../../fb'
 import './Admin.scss'
@@ -18,13 +18,16 @@ const INITIAL_STATE: Billetes = {
   cincuenta: 0,
 }
 
+interface props {
+  acomulado: number,
+  setAcomulado: React.Dispatch<React.SetStateAction<number>>,
+  cantidadBilletes: Billetes,
+  setCantidadBilletes: React.Dispatch<React.SetStateAction<Billetes>>
+}
 
 
+const Admin = ({ acomulado, cantidadBilletes, setAcomulado, setCantidadBilletes }: props) => {
 
-const Admin = ({ }) => {
-
-  const [acomulado, setAcomulado] = useState<number>(0)
-  const [cantidadBilletes, setCantidadBilletes] = useState(INITIAL_STATE)
 
   const navigate = useNavigate()
 
@@ -39,6 +42,15 @@ const Admin = ({ }) => {
 
     setAcomulado(diez + veinte + cincuenta)
 
+  }
+
+  const reiniciarSaldo = () => {
+    setAcomulado(0)
+    setCantidadBilletes({
+      diez: 0,
+      veinte: 0,
+      cincuenta: 0,
+    })
   }
 
 
@@ -71,18 +83,18 @@ const Admin = ({ }) => {
         <form onSubmit={(e) => acomuladoSaldo(e)} >
           <div className='admin__containerBilletes'>
             <img className='admin__billete' src="https://www.eluniversal.com.co/sites/default/files/201612/anverso-billete-10-mil.jpg" alt="" />
-            <input onChange={(e) => handlesChange(e)} className='admin__inputBilletes' type="number" name="diez" id="" />
+            <input onChange={(e) => handlesChange(e)} className='admin__inputBilletes' type="number" name="diez" id="" value={cantidadBilletes.diez}/>
           </div>
           <div className='admin__containerBilletes'>
             <img className='admin__billete' src="https://s3.amazonaws.com/rtvc-assets-misenal.tv/ms-public/ms-editor/20mil.jpg" alt="" />
-            <input onChange={(e) => handlesChange(e)} className='admin__inputBilletes' type="number" name="veinte" id="" />
+            <input onChange={(e) => handlesChange(e)} className='admin__inputBilletes' type="number" name="veinte" id="" value={cantidadBilletes.veinte}/>
           </div>
           <div className='admin__containerBilletes'>
             <img className='admin__billete' src="https://www.banrep.gov.co/billetes/50-mil/images/50000/anverso50000.png" alt="" />
-            <input onChange={(e) => handlesChange(e)} className='admin__inputBilletes' type="number" name="cincuenta" id="" />
+            <input onChange={(e) => handlesChange(e)} className='admin__inputBilletes' type="number" name="cincuenta" id="" value={cantidadBilletes.cincuenta}/>
           </div>
           <button type='submit' className='admin__saldo admin__recargar'>Actualizar saldo</button>
-          <button className='admin__saldo admin__reiniciar'>Reiniciar saldo</button>
+          <button onClick={()=>reiniciarSaldo()} className='admin__saldo admin__reiniciar'>Reiniciar saldo</button>
         </form>
       </div>
 
