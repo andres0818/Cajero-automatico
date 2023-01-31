@@ -3,7 +3,8 @@ import Admin from './pages/admin/Admin'
 import Login from './pages/Login/Login '
 import Usuario from './pages/Usuario'
 import './App.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { app } from './fb'
 
 
 
@@ -23,17 +24,41 @@ const App = () => {
 
   const [acomulado, setAcomulado] = useState<number>(0)
   const [cantidadBilletes, setCantidadBilletes] = useState(INITIAL_STATE)
+
+  const [usuario, setUsuario] = useState<string | null | undefined>()
+  const [loadingUser, setLoadingUser] = useState<boolean>()
+
+
+  const usuarioLogin = () => {
+
+    app.auth().onAuthStateChanged((status) => {
+      setUsuario(status ? status.email : null);
+      setLoadingUser(false);
+
+    });
+  }
+
+  useEffect(() => {
+    setLoadingUser(true);
+    usuarioLogin()
+
+  }, [])
+
+
+
+
   return (
     <Routes>
       <Route path='/cajero-automatico' element={
         <Login />} />
-      <Route path='/admin' element={<Admin acomulado={acomulado} setAcomulado={setAcomulado}
+      <Route path='/admin' element={<Admin
+        acomulado={acomulado} setAcomulado={setAcomulado} usuario={usuario}
         cantidadBilletes={cantidadBilletes} setCantidadBilletes={setCantidadBilletes}
       />}
       />
       <Route path='/usuario' element={
         <Usuario
-          acomulado={acomulado} setAcomulado={setAcomulado}
+          acomulado={acomulado} setAcomulado={setAcomulado} usuario={usuario}
           cantidadBilletes={cantidadBilletes} setCantidadBilletes={setCantidadBilletes}
         />}
       />

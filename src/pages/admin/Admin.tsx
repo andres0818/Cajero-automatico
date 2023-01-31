@@ -18,14 +18,20 @@ interface props {
   acomulado: number,
   setAcomulado: React.Dispatch<React.SetStateAction<number>>,
   cantidadBilletes: Billetes,
-  setCantidadBilletes: React.Dispatch<React.SetStateAction<Billetes>>
+  setCantidadBilletes: React.Dispatch<React.SetStateAction<Billetes>>,
+  usuario: string | null | undefined
 }
 
 
-const Admin = ({ acomulado, cantidadBilletes, setAcomulado, setCantidadBilletes }: props) => {
-
+const Admin = ({ usuario, acomulado, cantidadBilletes, setAcomulado, setCantidadBilletes }: props) => {
 
   const navigate = useNavigate()
+
+  if (usuario === undefined || usuario === null) {
+    navigate('/login')
+
+  }
+
 
   const number: number[] = [0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 

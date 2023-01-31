@@ -13,14 +13,21 @@ interface InicioSesion {
 
 const Login: Function = () => {
 
-  const [modal, setModal] = useState<boolean>(false)
+  const [modal, setModal] = useState<InicioSesion['status']>(false)
   const [tipoUsuario, setTipoUsuario] = useState<InicioSesion["name"]>('')
+  const [error, setError] = useState("")
   const [user, setUser] = useState({
     email: '',
     password: '',
   })
 
   const navigate = useNavigate()
+
+
+
+  
+    
+  
 
 
   const loginAdmin: Function = (name: string) => {
@@ -38,8 +45,7 @@ const Login: Function = () => {
     e.preventDefault()
     app.auth().signInWithEmailAndPassword(user.email, user.password).then(() => {
       navigate(`/${tipoUsuario}`)
-    })
-
+    }).catch(err => setError(err.message))
   }
 
 
@@ -59,6 +65,7 @@ const Login: Function = () => {
         <div className='login__modal'>
           <div className="login__borderEffects">
             <div className="login__modalContainer">
+              {error && <p>{error}</p>}
               <h1 className='login__tituloModal'>Welcome {tipoUsuario}</h1>
               <form className='login__form' onSubmit={(e) => handlerSubmit(e)} >
                 <input onChange={(e) => setUser({ ...user, email: e.target.value })} className='login__email' type="email" name="email" id="email" placeholder='email' value={user.email} />

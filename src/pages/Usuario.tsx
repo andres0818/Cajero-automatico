@@ -22,16 +22,22 @@ interface props {
   setAcomulado: React.Dispatch<React.SetStateAction<number>>,
   cantidadBilletes: Billetes,
   setCantidadBilletes: React.Dispatch<React.SetStateAction<Billetes>>
+  usuario: string | null | undefined
 }
 
 
 
-const Usuario = ({ acomulado, cantidadBilletes, setAcomulado, setCantidadBilletes }: props) => {
+const Usuario = ({ usuario, acomulado, cantidadBilletes, setAcomulado, setCantidadBilletes }: props) => {
   const number: number[] = [0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   const [retirar, setRetirar] = useState<number | string>(0)
   const [retirarJoin, setRetirarJoin] = useState<number[]>([])
   const [sinFondos, setSinFondos] = useState(false)
   const navigate = useNavigate()
+
+  if (usuario === undefined || usuario === null) {
+    navigate('/login')
+
+  }
 
 
 
