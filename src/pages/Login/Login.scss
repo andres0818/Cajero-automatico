@@ -262,5 +262,16 @@
         transform: translate(-50%, -50%);
     }
 
+
+    &__modalCat{
+        width: 10%;
+        position: absolute;
+        top: 5%;
+        left: 0;
+        @media(max-width:414px){
+            width: 30%;
+        }
+    }
+
     
 }

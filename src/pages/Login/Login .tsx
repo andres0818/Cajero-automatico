@@ -63,6 +63,7 @@ const Login: Function = () => {
       {
         modal &&
         <div className='login__modal'>
+          <img className='login__modalCat' src="https://i.pinimg.com/originals/09/58/a2/0958a212d8e4b354b2668472808d5548.gif" alt="" />
           <div className="login__borderEffects">
             <div className="login__modalContainer">
               {error && <p>{error}</p>}
