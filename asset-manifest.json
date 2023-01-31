@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/cajero-automatico/static/css/main.4a6e3588.css",
-    "main.js": "/cajero-automatico/static/js/main.125905ee.js",
+    "main.js": "/cajero-automatico/static/js/main.8538cb07.js",
     "static/media/administracion.png": "/cajero-automatico/static/media/administracion.1b1431156ef35400140f.png",
     "static/media/cajero-automatico.png": "/cajero-automatico/static/media/cajero-automatico.685b9eb04732ae13f2bf.png",
     "static/media/google.png": "/cajero-automatico/static/media/google.e12914ad8afda3f6f2e8.png",
     "static/media/hombre.png": "/cajero-automatico/static/media/hombre.4a3c9bf269ffa20b658e.png",
     "index.html": "/cajero-automatico/index.html",
     "main.4a6e3588.css.map": "/cajero-automatico/static/css/main.4a6e3588.css.map",
-    "main.125905ee.js.map": "/cajero-automatico/static/js/main.125905ee.js.map"
+    "main.8538cb07.js.map": "/cajero-automatico/static/js/main.8538cb07.js.map"
   },
   "entrypoints": [
     "static/css/main.4a6e3588.css",
-    "static/js/main.125905ee.js"
+    "static/js/main.8538cb07.js"
   ]
 }
