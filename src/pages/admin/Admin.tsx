@@ -1,5 +1,6 @@
 
 import { useNavigate } from 'react-router-dom'
+import LoginRequired from '../../components/LoginRequired/LoginRequired'
 import { app } from '../../fb'
 import './Admin.scss'
 
@@ -26,11 +27,7 @@ interface props {
 const Admin = ({ usuario, acomulado, cantidadBilletes, setAcomulado, setCantidadBilletes }: props) => {
 
   const navigate = useNavigate()
-
-  if (usuario === undefined || usuario === null) {
-    navigate('/login')
-
-  }
+  if (usuario === undefined || usuario === null) return <LoginRequired navigate={navigate}/>
 
 
   const number: number[] = [0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]

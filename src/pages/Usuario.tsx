@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import LoginRequired from "../components/LoginRequired/LoginRequired"
 import { app } from "../fb"
 import "./Usuario.scss"
 
@@ -11,11 +12,6 @@ interface Billetes {
   cincuenta?: number,
 }
 
-const INITIAL_STATE: Billetes = {
-  diez: 0,
-  veinte: 0,
-  cincuenta: 0,
-}
 
 interface props {
   acomulado: number,
@@ -34,10 +30,7 @@ const Usuario = ({ usuario, acomulado, cantidadBilletes, setAcomulado, setCantid
   const [sinFondos, setSinFondos] = useState(false)
   const navigate = useNavigate()
 
-  if (usuario === undefined || usuario === null) {
-    navigate('/login')
-
-  }
+  if (usuario === undefined || usuario === null) return <LoginRequired navigate={navigate}/>
 
 
 
@@ -46,9 +39,9 @@ const Usuario = ({ usuario, acomulado, cantidadBilletes, setAcomulado, setCantid
 
 
     const valor: number = typeof retirar === 'number' ? retirar : parseInt(retirar)
-    const cincuenta: number = cantidadBilletes.cincuenta !== undefined ? cantidadBilletes.cincuenta : 0
-    const veinte: number = cantidadBilletes.veinte !== undefined ? cantidadBilletes.veinte : 0
-    const diez: number = cantidadBilletes.diez !== undefined ? cantidadBilletes.diez : 0
+    // const cincuenta: number = cantidadBilletes.cincuenta !== undefined ? cantidadBilletes.cincuenta : 0
+    // const veinte: number = cantidadBilletes.veinte !== undefined ? cantidadBilletes.veinte : 0
+    // const diez: number = cantidadBilletes.diez !== undefined ? cantidadBilletes.diez : 0
 
     const validarCantidad = () => acomulado > 0 && acomulado > valor ? setAcomulado(acomulado - valor) : setSinFondos(true);
 
