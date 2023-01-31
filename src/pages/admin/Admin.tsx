@@ -27,7 +27,7 @@ const Admin = ({ acomulado, cantidadBilletes, setAcomulado, setCantidadBilletes 
 
   const navigate = useNavigate()
 
-  const number: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const number: number[] = [0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
   const acomuladoSaldo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -79,18 +79,18 @@ const Admin = ({ acomulado, cantidadBilletes, setAcomulado, setCantidadBilletes 
         <form onSubmit={(e) => acomuladoSaldo(e)} >
           <div className='admin__containerBilletes'>
             <img className='admin__billete' src="https://www.eluniversal.com.co/sites/default/files/201612/anverso-billete-10-mil.jpg" alt="" />
-            <input onChange={(e) => handlesChange(e)} className='admin__inputBilletes' type="number" name="diez" id="" value={cantidadBilletes.diez}/>
+            <input onChange={(e) => handlesChange(e)} className='admin__inputBilletes' type="number" name="diez" id="" value={cantidadBilletes.diez} />
           </div>
           <div className='admin__containerBilletes'>
             <img className='admin__billete' src="https://s3.amazonaws.com/rtvc-assets-misenal.tv/ms-public/ms-editor/20mil.jpg" alt="" />
-            <input onChange={(e) => handlesChange(e)} className='admin__inputBilletes' type="number" name="veinte" id="" value={cantidadBilletes.veinte}/>
+            <input onChange={(e) => handlesChange(e)} className='admin__inputBilletes' type="number" name="veinte" id="" value={cantidadBilletes.veinte} />
           </div>
           <div className='admin__containerBilletes'>
             <img className='admin__billete' src="https://www.banrep.gov.co/billetes/50-mil/images/50000/anverso50000.png" alt="" />
-            <input onChange={(e) => handlesChange(e)} className='admin__inputBilletes' type="number" name="cincuenta" id="" value={cantidadBilletes.cincuenta}/>
+            <input onChange={(e) => handlesChange(e)} className='admin__inputBilletes' type="number" name="cincuenta" id="" value={cantidadBilletes.cincuenta} />
           </div>
           <button type='submit' className='admin__saldo admin__recargar'>Actualizar saldo</button>
-          <button onClick={()=>reiniciarSaldo()} className='admin__saldo admin__reiniciar'>Reiniciar saldo</button>
+          <button onClick={() => reiniciarSaldo()} className='admin__saldo admin__reiniciar'>Reiniciar saldo</button>
         </form>
       </div>
 
