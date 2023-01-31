@@ -27,11 +27,11 @@ const App = () => {
     <Routes>
       <Route path='/cajero-automatico' element={
         <Login />} />
-      <Route path='/cajero-automatico/admin' element={<Admin acomulado={acomulado} setAcomulado={setAcomulado}
+      <Route path='/admin' element={<Admin acomulado={acomulado} setAcomulado={setAcomulado}
         cantidadBilletes={cantidadBilletes} setCantidadBilletes={setCantidadBilletes}
       />}
       />
-      <Route path='/cajero-automatico/usuario' element={
+      <Route path='/usuario' element={
         <Usuario
           acomulado={acomulado} setAcomulado={setAcomulado}
           cantidadBilletes={cantidadBilletes} setCantidadBilletes={setCantidadBilletes}

@@ -44,7 +44,7 @@ const Usuario = ({ acomulado, cantidadBilletes, setAcomulado, setCantidadBillete
     const veinte: number = cantidadBilletes.veinte !== undefined ? cantidadBilletes.veinte : 0
     const diez: number = cantidadBilletes.diez !== undefined ? cantidadBilletes.diez : 0
 
-    const validarCantidad = () => acomulado > 0 ? setAcomulado(acomulado - valor) : setSinFondos(true);
+    const validarCantidad = () => acomulado > 0 && acomulado > valor ? setAcomulado(acomulado - valor) : setSinFondos(true);
 
     validarCantidad()
 
@@ -114,7 +114,7 @@ const Usuario = ({ acomulado, cantidadBilletes, setAcomulado, setCantidadBillete
         <div className='usuario__sinFondos'>
           <div className="usuario__sinFondosContainer">
 
-            <h1 className="usuario__tituloSinfondos">Sin fondos</h1>
+            <h1 className="usuario__tituloSinfondos">Fondos insuficientes</h1>
             <button onClick={() => setSinFondos(false)} className="usuario__sinFondosBtn">Retirar nuevamente</button>
           </div>
         </div>
