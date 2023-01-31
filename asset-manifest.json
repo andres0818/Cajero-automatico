@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/cajero-automatico/static/css/main.15d83117.css",
-    "main.js": "/cajero-automatico/static/js/main.b6235a1b.js",
+    "main.css": "/cajero-automatico/static/css/main.d781e986.css",
+    "main.js": "/cajero-automatico/static/js/main.9669c1ff.js",
     "static/media/administracion.png": "/cajero-automatico/static/media/administracion.1b1431156ef35400140f.png",
     "static/media/cajero-automatico.png": "/cajero-automatico/static/media/cajero-automatico.685b9eb04732ae13f2bf.png",
     "static/media/google.png": "/cajero-automatico/static/media/google.e12914ad8afda3f6f2e8.png",
     "static/media/hombre.png": "/cajero-automatico/static/media/hombre.4a3c9bf269ffa20b658e.png",
     "index.html": "/cajero-automatico/index.html",
-    "main.15d83117.css.map": "/cajero-automatico/static/css/main.15d83117.css.map",
-    "main.b6235a1b.js.map": "/cajero-automatico/static/js/main.b6235a1b.js.map"
+    "main.d781e986.css.map": "/cajero-automatico/static/css/main.d781e986.css.map",
+    "main.9669c1ff.js.map": "/cajero-automatico/static/js/main.9669c1ff.js.map"
   },
   "entrypoints": [
-    "static/css/main.15d83117.css",
-    "static/js/main.b6235a1b.js"
+    "static/css/main.d781e986.css",
+    "static/js/main.9669c1ff.js"
   ]
 }
