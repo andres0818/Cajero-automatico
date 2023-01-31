@@ -26,8 +26,9 @@ const App = () => {
   const [cantidadBilletes, setCantidadBilletes] = useState(INITIAL_STATE)
 
   const [usuario, setUsuario] = useState<string | null | undefined>()
-  const [loadingUser, setLoadingUser] = useState<boolean>()
+  const [loadingUser, setLoadingUser] = useState<boolean>(false)
 
+  
 
   const usuarioLogin = () => {
 
@@ -51,14 +52,14 @@ const App = () => {
     <Routes>
       <Route path='/cajero-automatico' element={
         <Login />} />
-      <Route path='/admin' element={<Admin
-        acomulado={acomulado} setAcomulado={setAcomulado} usuario={usuario}
+      <Route path='/cajero-automatico/admin' element={<Admin
+        acomulado={acomulado} setAcomulado={setAcomulado} usuario={usuario} loadingUser={loadingUser}
         cantidadBilletes={cantidadBilletes} setCantidadBilletes={setCantidadBilletes}
       />}
       />
-      <Route path='/usuario' element={
+      <Route path='/cajero-automatico/usuario' element={
         <Usuario
-          acomulado={acomulado} setAcomulado={setAcomulado} usuario={usuario}
+          acomulado={acomulado} setAcomulado={setAcomulado} usuario={usuario} loadingUser={loadingUser}
           cantidadBilletes={cantidadBilletes} setCantidadBilletes={setCantidadBilletes}
         />}
       />

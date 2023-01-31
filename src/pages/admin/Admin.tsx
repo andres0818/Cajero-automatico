@@ -20,17 +20,30 @@ interface props {
   setAcomulado: React.Dispatch<React.SetStateAction<number>>,
   cantidadBilletes: Billetes,
   setCantidadBilletes: React.Dispatch<React.SetStateAction<Billetes>>,
-  usuario: string | null | undefined
+  usuario: string | null | undefined,
+  loadingUser: boolean
 }
 
 
-const Admin = ({ usuario, acomulado, cantidadBilletes, setAcomulado, setCantidadBilletes }: props) => {
-
-  const navigate = useNavigate()
-  if (usuario === undefined || usuario === null) return <LoginRequired navigate={navigate}/>
-
+const Admin = ({ loadingUser, usuario, acomulado, cantidadBilletes, setAcomulado, setCantidadBilletes }: props) => {
 
   const number: number[] = [0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const navigate = useNavigate()
+
+
+  if (loadingUser === true) return (
+
+    <>
+      <div className="login__borderEffects" style={{width:"166.6vh",height:"58.3vh",display:"flex", justifyContent:"center",alignItems:"center"}}>
+        <h1>Loading</h1>
+      </div>
+    </>
+  )
+
+  if (usuario === undefined || usuario === null) return <LoginRequired navigate={navigate} />
+
+
+
 
   const acomuladoSaldo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -66,9 +79,7 @@ const Admin = ({ usuario, acomulado, cantidadBilletes, setAcomulado, setCantidad
 
 
   const sinOut = () => {
-    app.auth().signOut().then(() => {
-      navigate('/')
-    })
+    app.auth().signOut()
 
   }
 

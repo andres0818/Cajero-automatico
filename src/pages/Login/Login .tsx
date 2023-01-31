@@ -44,7 +44,7 @@ const Login: Function = () => {
   const handlerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     app.auth().signInWithEmailAndPassword(user.email, user.password).then(() => {
-      navigate(`/${tipoUsuario}`)
+      navigate(`/cajero-automatico/${tipoUsuario}`)
     }).catch(err => setError(err.message))
   }
 
