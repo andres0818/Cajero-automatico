@@ -187,7 +187,7 @@
         color: white;
         position: relative;
         overflow: hidden;
-        border: solid  rgb(84, 170, 26) 2px;
+        border: solid rgb(84, 170, 26) 2px;
 
 
 
@@ -227,7 +227,7 @@
         color: white;
         position: relative;
         overflow: hidden;
-        border: solid  rgb(209, 5, 5) 2px;
+        border: solid rgb(209, 5, 5) 2px;
 
 
 
@@ -251,9 +251,10 @@
 
 
         &:hover {
-            color: rgb(209,5,5);
+            color: rgb(209, 5, 5);
         }
     }
+
     &__textBackBtn {
         position: absolute;
         z-index: 1;
@@ -263,15 +264,26 @@
     }
 
 
-    &__modalCat{
+    &__modalCat {
         width: 10%;
         position: absolute;
         top: 5%;
         left: 0;
-        @media(max-width:414px){
+
+        @media(max-width:414px) {
             width: 30%;
         }
-    }
 
-    
+
+        
+        
+    }
+}
+.modalUser{
+    position: absolute;
+    top: 10%;
+    font-weight: bold;
+    @media(max-width:414px){
+        top: 0%;
+    }
 }

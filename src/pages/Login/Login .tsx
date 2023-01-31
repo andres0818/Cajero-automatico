@@ -78,7 +78,7 @@ const Login: Function = () => {
 
               </form>
             </div>
-            <p style={{ position: 'absolute', top: '10%' }}>{
+            <p className='modalUser' >{
               tipoUsuario === 'Admin' ?
                 <>Email: adminCajero@correo.com  <br />
                   Password: 123456</>
