@@ -4,15 +4,11 @@ import LoginRequired from "../components/LoginRequired/LoginRequired"
 import { app } from "../fb"
 import "./Usuario.scss"
 
-
-
 interface Billetes {
   diez?: number,
   veinte?: number,
   cincuenta?: number,
 }
-
-
 interface props {
   acomulado: number,
   setAcomulado: React.Dispatch<React.SetStateAction<number>>,
@@ -21,8 +17,6 @@ interface props {
   usuario: string | null | undefined,
   loadingUser: boolean
 }
-
-
 
 const Usuario = ({ loadingUser, usuario, acomulado, cantidadBilletes, setAcomulado, setCantidadBilletes }: props) => {
   const number: number[] = [0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -42,11 +36,7 @@ const Usuario = ({ loadingUser, usuario, acomulado, cantidadBilletes, setAcomula
 
   if (usuario === undefined || usuario === null) return <LoginRequired navigate={navigate} />
 
-
-
-
   const retirarDinero = (dineroRetirado: number) => {
-
 
     const valor: number = typeof retirar === 'number' ? retirar : parseInt(retirar)
     // const cincuenta: number = cantidadBilletes.cincuenta !== undefined ? cantidadBilletes.cincuenta : 0
@@ -61,10 +51,7 @@ const Usuario = ({ loadingUser, usuario, acomulado, cantidadBilletes, setAcomula
       diez: 0
     })
 
-
   }
-
-
 
   const btnClick = (numero: number) => {
     const numeroNuevo = [...retirarJoin, numero];
@@ -86,7 +73,6 @@ const Usuario = ({ loadingUser, usuario, acomulado, cantidadBilletes, setAcomula
     app.auth().signOut()
 
   }
-
 
   return (
     <>

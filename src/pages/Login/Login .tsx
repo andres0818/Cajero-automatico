@@ -22,11 +22,6 @@ const Login: Function = () => {
   })
 
   const navigate = useNavigate()
-
-
-
-  
-    
   
 
 
@@ -46,10 +41,9 @@ const Login: Function = () => {
     app.auth().signInWithEmailAndPassword(user.email, user.password).then(() => {
       navigate(`/cajero-automatico/${tipoUsuario}`)
     }).catch(err => setError(err.message))
+
+
   }
-
-
-
 
   return (
     <>
@@ -60,6 +54,7 @@ const Login: Function = () => {
         <h2 className='login__titulo'>Welcome</h2>
         <h3 className='login__subtitulo'>Log in</h3>
       </div>
+      
       {
         modal &&
         <div className='login__modal'>
